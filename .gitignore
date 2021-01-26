@@ -1,0 +1,7 @@
+.idea/
+.phpunit.result.cache
+/mysql
+/vendor
+archivos/*
+.env
+phpunit.xml
