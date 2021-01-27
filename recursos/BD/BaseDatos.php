@@ -159,7 +159,7 @@ class BaseDatos
             (2, 'metodos', 'METODOS', 'fas fa-list-ul', '1', '-1', '-1'),
             (3, 'grupos', 'GRUPOS', 'fas fa-users-cog', '1', '-1', '-1'),
             (4, 'usuarios', 'USUARIOS', 'fas fa-users', '1', '-1', '-1'),
-            (5, 'categorias', 'CATEGORIAS', 'fas fa-users', '1', '-1', '-1');
+            (5, 'categorias', 'CATEGORIAS', 'fas fa-chart-pie', '1', '-1', '-1');
         ";
 
         $numeroMenus = 5;
