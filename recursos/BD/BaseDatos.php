@@ -161,7 +161,7 @@ class BaseDatos
             (4, 'usuarios', 'USUARIOS', 'fas fa-users', '1', '-1', '-1'),
             (5, 'categorias', 'CATEGORIAS', 'fas fa-chart-pie', '1', '-1', '-1'),
             (6, 'productos', 'PRODUCTOS', 'fas fa-boxes', '1', '-1', '-1'),
-            (7, 'categorias', 'CAJEROS', 'fas fa-cash-register', '1', '-1', '-1');
+            (7, 'cajeros', 'CAJEROS', 'fas fa-cash-register', '1', '-1', '-1');
         ";
 
         $numeroMenus = 7;
