@@ -187,7 +187,7 @@ class BaseDatos
 
         $numeroMenus = 7;
 
-        $numeroMetodosEspeciales = 5;
+        $numeroMetodosEspeciales = 7;
         $query .= "
             INSERT INTO `metodos` 
             (id,nombre,etiqueta,accion,icono,menu_id,activo_menu,activo_accion,activo,usuario_registro_id,usuario_actualizacion_id)
@@ -199,6 +199,9 @@ class BaseDatos
             ('3','permisos','','Asigna Permisos','fas fa-plus-square',3,FALSE,TRUE,TRUE,-1,-1),
             ('4','bajaPermiso','','','',3,FALSE,FALSE,TRUE,-1,-1),
             ('5','altaPermiso','','','',3,FALSE,FALSE,TRUE,-1,-1),
+
+            ('6','agregarProducto','','Agregar Producto','fas fa-cart-plus',6,FALSE,TRUE,TRUE,-1,-1),
+            ('7','agregarProductoBd','','','',6,FALSE,FALSE,TRUE,-1,-1),
 
         ";
 
@@ -234,6 +237,18 @@ class BaseDatos
         $query .= "($numeroMetodos,$grupoId,TRUE);";
 
         $query .= "
+
+            INSERT INTO `productos` VALUES (1, 1, '0050', 'Miguelito 950g', NULL, 10, 2, 45.0000, 53.0000, 1, 1, 1, '2021-01-27 14:15:29', '2021-01-27 14:15:29');
+            INSERT INTO `productos` VALUES (2, 1, '0051', 'Miguelito 250g', NULL, 15, 2, 17.0000, 21.0000, 1, 1, 1, '2021-01-27 14:16:28', '2021-01-27 14:16:28');
+            INSERT INTO `productos` VALUES (3, 2, '0020', 'Leche Lala 1Lt', NULL, 20, 5, 18.0000, 22.0000, 1, 1, 1, '2021-01-27 14:17:01', '2021-01-27 14:17:01');
+            INSERT INTO `productos` VALUES (4, 3, '0030', 'Jamon de pavo Fud 250g', NULL, 10, 1, 24.0000, 29.0000, 1, 1, 1, '2021-01-27 14:17:46', '2021-01-27 14:17:46');
+            INSERT INTO `productos` VALUES (5, 4, '0080', 'Arroz 1kg', NULL, 30, 5, 20.0000, 27.0000, 1, 1, 1, '2021-01-27 14:18:33', '2021-01-27 14:18:33');
+
+            INSERT INTO `categorias` VALUES (1, 'Dulces', 1, 1, 1, '2021-01-27 14:12:59', '2021-01-27 14:12:59');
+            INSERT INTO `categorias` VALUES (2, 'Lacteos', 1, 1, 1, '2021-01-27 14:13:08', '2021-01-27 14:13:08');
+            INSERT INTO `categorias` VALUES (3, 'Carnes Frias', 1, 1, 1, '2021-01-27 14:13:14', '2021-01-27 14:13:14');
+            INSERT INTO `categorias` VALUES (4, 'Canasta Basica', 1, 1, 1, '2021-01-27 14:13:32', '2021-01-27 14:13:32');
+
             SET FOREIGN_KEY_CHECKS = 1;
         ";
 
