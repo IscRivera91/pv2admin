@@ -104,9 +104,21 @@ class productos extends Controlador
 
         $nombreMenu = $this->nombreMenu;
         $registro = $this->registro;
-        
+
         $this->htmlInputFormulario[] = Html::inputTextRequired(4,'Producto',1,'nombre','',$registro["{$nombreMenu}_nombre"]);
-        $this->htmlInputFormulario[] = Html::selectActivo('Activo','activo',4,$registro["{$nombreMenu}_activo"],2);
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Alerta',3,'alerta','',$registro["{$nombreMenu}_alerta"]);
+        $this->htmlInputFormulario[] = Html::inputFloatRequired(4,'Precio Compra',4,'precio_compra','',$registro["{$nombreMenu}_precio_compra"]);
+        $this->htmlInputFormulario[] = Html::inputFloatRequired(4,'Precio Venta',5,'precio_venta','',$registro["{$nombreMenu}_precio_venta"]);
+        $this->htmlInputFormulario[] = Html::selectConBuscador(
+            'categorias_id',
+            'Categoria', 
+            'categoria_id', 
+            4,
+            $this->categoriasRegistros,
+            'categorias_nombre',
+            $registro["{$nombreMenu}_categoria_id"],
+            6,
+        );
 
         $this->htmlInputFormulario[] = Html::submit('Modificar',$this->llaveFormulario,4);
     }
