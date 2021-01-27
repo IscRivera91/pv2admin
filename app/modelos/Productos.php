@@ -15,7 +15,7 @@ class Productos extends Modelo
         ]; 
         $columnas = [
             'unicas' => ['nombre'],
-            'obligatorias' => ['nombre','categoria_id','cantidad','precio_compra','precio_venta'],
+            'obligatorias' => ['codigo_barras','nombre','categoria_id','cantidad','precio_compra','precio_venta'],
             'protegidas' => []
         ];
         parent::__construct($coneccion, $tabla, $relaciones, $columnas);
