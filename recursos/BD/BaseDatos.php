@@ -159,10 +159,12 @@ class BaseDatos
             (2, 'metodos', 'METODOS', 'fas fa-list-ul', '1', '-1', '-1'),
             (3, 'grupos', 'GRUPOS', 'fas fa-users-cog', '1', '-1', '-1'),
             (4, 'usuarios', 'USUARIOS', 'fas fa-users', '1', '-1', '-1'),
-            (5, 'categorias', 'CATEGORIAS', 'fas fa-chart-pie', '1', '-1', '-1');
+            (5, 'categorias', 'CATEGORIAS', 'fas fa-chart-pie', '1', '-1', '-1'),
+            (6, 'productos', 'PRODUCTOS', 'fas fa-boxes', '1', '-1', '-1'),
+            (7, 'categorias', 'CAJEROS', 'fas fa-cash-register', '1', '-1', '-1');
         ";
 
-        $numeroMenus = 5;
+        $numeroMenus = 7;
 
         $numeroMetodosEspeciales = 5;
         $query .= "
