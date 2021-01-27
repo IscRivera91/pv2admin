@@ -143,7 +143,9 @@ class BaseDatos
 
             INSERT INTO grupos (nombre , activo , usuario_registro_id ,usuario_actualizacion_id)
             VALUES
-            ('programador',TRUE,-1,-1);
+            ('programador',TRUE,-1,-1),
+            ('administrador',TRUE,-1,-1),
+            ('cajero',TRUE,-1,-1);
 
             INSERT INTO usuarios 
             (usuario, password, nombre_completo, correo_electronico, sexo, grupo_id, activo, usuario_registro_id, usuario_actualizacion_id) 
