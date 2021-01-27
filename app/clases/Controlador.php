@@ -3,7 +3,6 @@
 namespace App\clases;
 
 use App\ayudas\Html;
-use App\clases\Modelo;
 use App\errores\Esperado AS ErrorEsperado;
 use App\errores\Base AS ErrorBase;
 use App\ayudas\Redireccion;
@@ -28,7 +27,7 @@ abstract class Controlador
     public string $nombreMenu;                    // Define el menu al cual se deben hacer la redirecciones
     public string $nameSubmit;                    // Nombre de el boton de submit de los filtros en las listas
     public string $filtroEspecial = '';           // Filtro especial para las listas 
-    public Modelo $modelo;                        // Modelo del menu con el que se esta trabajando
+    public $modelo;                               // Modelo del menu con el que se esta trabajando
 
     public function __construct()
     {
