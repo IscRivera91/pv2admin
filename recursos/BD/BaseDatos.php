@@ -13,6 +13,7 @@ class BaseDatos
             CREATE TABLE `productos`  (
             `id` int(11) NOT NULL AUTO_INCREMENT,
             `categoria_id` int(11) NULL DEFAULT NULL,
+            `codigo_barras` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
             `nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
             `descripcion` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
             `cantidad` int(11) NULL DEFAULT NULL,
