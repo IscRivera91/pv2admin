@@ -60,7 +60,7 @@ class productos extends Controlador
 
         $tablaCampo = 'productos+codigo_barras';
         $placeholder = '';
-        $this->htmlInputFiltros[$tablaCampo] = Html::inputNumber($col,'Codigo Barras    ',1,$tablaCampo,$placeholder,$datos[$tablaCampo]);
+        $this->htmlInputFiltros[$tablaCampo] = Html::inputNumber($col,'Codigo Barras',1,$tablaCampo,$placeholder,$datos[$tablaCampo],false,true);
 
         $tablaCampo = 'productos+nombre';
         $placeholder = '';
@@ -75,7 +75,7 @@ class productos extends Controlador
     {
         $this->breadcrumb = true;
 
-        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Codigo Barras',8,'codigo_barras');
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Codigo Barras',8,'codigo_barras','','',false,true);
         $this->htmlInputFormulario[] = Html::inputTextRequired(4,'Producto',1,'nombre');
         $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Cantidad',2,'cantidad');
         $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Alerta',3,'alerta');
@@ -121,6 +121,11 @@ class productos extends Controlador
         );
 
         $this->htmlInputFormulario[] = Html::submit('Modificar',$this->llaveFormulario,4);
+    }
+
+    public function agregarProducto()
+    {
+        $registroId = $this->validaRegistoId();
     }
 
 }
