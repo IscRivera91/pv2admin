@@ -96,12 +96,19 @@ class Html
         string $name,
         string $placeholder = '',
         string $value       = '',
-        bool   $saltarLinea = false
+        bool   $saltarLinea = false,
+        bool   $focus = false
     ) :string {
         $placeholder = self::obtenerPlaceholder($label,$placeholder);
+        
+        $textoFocus = '';
+        if ($focus) {
+            $textoFocus = 'autofocus';
+        }
+
         $inputNumbertHtml = '';
         $inputNumbertHtml .= self::generaPrincipioInput($col);
-        $inputNumbertHtml .= "<input title='$label' id='$id' name='$name' placeholder='$placeholder' value='$value' class='form-control  form-control-sm' type='number'>";
+        $inputNumbertHtml .= "<input $textoFocus title='$label' id='$id' name='$name' placeholder='$placeholder' value='$value' class='form-control  form-control-sm' type='number'>";
         $inputNumbertHtml .= self::generaFinalInput($saltarLinea);
         
         return $inputNumbertHtml;
@@ -114,12 +121,19 @@ class Html
         string $name,
         string $placeholder = '',
         string $value       = '',
-        bool   $saltarLinea = false
+        bool   $saltarLinea = false,
+        bool   $focus = false
     ) :string {
         $placeholder = self::obtenerPlaceholder($label,$placeholder);
+
+        $textoFocus = '';
+        if ($focus) {
+            $textoFocus = 'autofocus';
+        }
+
         $inputNumberRequiredHtml = '';
         $inputNumberRequiredHtml .= self::generaPrincipioInput($col);
-        $inputNumberRequiredHtml .= "<input title='$label' id='$id' name='$name' placeholder='$placeholder' value='$value' required class='form-control  form-control-sm' type='number'>";
+        $inputNumberRequiredHtml .= "<input $textoFocus title='$label' id='$id' name='$name' placeholder='$placeholder' value='$value' required class='form-control  form-control-sm' type='number'>";
         $inputNumberRequiredHtml .= self::generaFinalInput($saltarLinea);
         
         return $inputNumberRequiredHtml;
