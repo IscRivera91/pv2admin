@@ -8,6 +8,18 @@ class BaseDatos
     
             SET NAMES utf8mb4;
             SET FOREIGN_KEY_CHECKS = 0;
+
+            DROP TABLE IF EXISTS `categorias`;
+            CREATE TABLE `categorias`  (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+            `activo` tinyint(11) NULL DEFAULT 0,
+            `usuario_registro_id` int(11) NULL DEFAULT NULL,
+            `usuario_actualizacion_id` int(11) NULL DEFAULT NULL,
+            `fecha_registro` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
+            `fecha_actualizacion` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
+            PRIMARY KEY (`id`) USING BTREE
+            ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
     
             DROP TABLE IF EXISTS `grupos`;
             CREATE TABLE `grupos`  (
@@ -144,10 +156,11 @@ class BaseDatos
             (1, 'menus', 'MENUS', 'fas fa-th-list', '1', '-1', '-1'),
             (2, 'metodos', 'METODOS', 'fas fa-list-ul', '1', '-1', '-1'),
             (3, 'grupos', 'GRUPOS', 'fas fa-users-cog', '1', '-1', '-1'),
-            (4, 'usuarios', 'USUARIOS', 'fas fa-users', '1', '-1', '-1');
+            (4, 'usuarios', 'USUARIOS', 'fas fa-users', '1', '-1', '-1'),
+            (5, 'categorias', 'CATEGORIAS', 'fas fa-users', '1', '-1', '-1');
         ";
 
-        $numeroMenus = 4;
+        $numeroMenus = 5;
 
         $numeroMetodosEspeciales = 5;
         $query .= "
