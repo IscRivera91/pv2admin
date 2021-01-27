@@ -31,6 +31,7 @@ class productos extends Controlador
 
         $this->camposLista = [
             'Id' => 'productos_id',
+            'Codigo Barras' => 'productos_codigo_barras',
             'Producto' => 'productos_nombre',
             'Categoria' => 'categorias_nombre',
             'Cantidad' => 'productos_cantidad',
@@ -64,7 +65,8 @@ class productos extends Controlador
     public function registrar()
     {
         $this->breadcrumb = true;
-        
+
+        $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Codigo Barras',8,'codigo_barras');
         $this->htmlInputFormulario[] = Html::inputTextRequired(4,'Producto',1,'nombre');
         $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Cantidad',2,'cantidad');
         $this->htmlInputFormulario[] = Html::inputNumberRequired(4,'Alerta',3,'alerta');
