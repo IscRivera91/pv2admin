@@ -50,16 +50,25 @@ class productos extends Controlador
         $this->sizeColumnasInputsFiltros = $col;
         
         //values de todos los inputs vacios
+        $datos['productos+codigo_barras'] = '';
         $datos['productos+nombre'] = '';
+        $datos['categorias+nombre'] = '';
 
         foreach ($datosFiltros as $key => $filtro) {
             $datos[$key] = $filtro;
         }
 
+        $tablaCampo = 'productos+codigo_barras';
+        $placeholder = '';
+        $this->htmlInputFiltros[$tablaCampo] = Html::inputNumber($col,'Codigo Barras    ',1,$tablaCampo,$placeholder,$datos[$tablaCampo]);
+
         $tablaCampo = 'productos+nombre';
         $placeholder = '';
-
         $this->htmlInputFiltros[$tablaCampo] = Html::inputText($col,'Producto',1,$tablaCampo,$placeholder,$datos[$tablaCampo]);
+
+        $tablaCampo = 'categorias+nombre';
+        $placeholder = '';
+        $this->htmlInputFiltros[$tablaCampo] = Html::inputText($col,'Categoria',1,$tablaCampo,$placeholder,$datos[$tablaCampo]);
     }
 
     public function registrar()
