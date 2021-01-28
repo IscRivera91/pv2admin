@@ -12,11 +12,14 @@ use App\modelos\Categorias AS ModeloCategorias;
 class productos extends Controlador
 {
     private $Categorias;
+    private $Productos;
+    public  $datosProducto;
     private $categoriasRegistros;
 
     public function __construct(Database $coneccion)
     {
-        $this->modelo = new ModeloProductos($coneccion);
+        $this->Productos = new ModeloProductos($coneccion);
+        $this->modelo = $this->Productos;
         $this->Categorias = new ModeloCategorias($coneccion);
         $this->nombreMenu = 'productos';
         $this->breadcrumb = false;
@@ -126,6 +129,10 @@ class productos extends Controlador
     public function agregarProducto()
     {
         $registroId = $this->validaRegistoId();
+
+        $columnas = ['productos_id','productos_codigo_barras','productos_nombre','productos_cantidad'];
+        $this->datosProducto = $this->Productos->buscarPorId($registroId,$columnas)['registros'];
+
     }
 
 }
