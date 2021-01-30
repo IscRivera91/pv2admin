@@ -44,6 +44,10 @@ class productos extends Controlador
             'Precio Venta' => 'productos_precio_venta',
             'Activo' => 'productos_activo'
         ];
+
+        if (GRUPO_ID == GRUPO_CAJEROS_ID) {
+            unset($this->camposLista['Precio Compra']);
+        }
         
         parent::__construct();
     }
