@@ -3,6 +3,7 @@
 namespace App\controladores;
 
 use App\ayudas\Html;
+use App\ayudas\Redireccion;
 use App\clases\Controlador;
 use App\interfaces\Database;
 use App\errores\Base AS ErrorBase;
@@ -131,8 +132,26 @@ class productos extends Controlador
         $registroId = $this->validaRegistoId();
 
         $columnas = ['productos_id','productos_codigo_barras','productos_nombre','productos_cantidad'];
-        $this->datosProducto = $this->Productos->buscarPorId($registroId,$columnas)['registros'];
+        $this->datosProducto = $this->Productos->buscarPorId($registroId,$columnas)['registros'][0];
 
+    }
+
+    public function agregarProductoBd()
+    {
+        $defaultValue = -1;
+        $productoId =  isset($_POST['id']) ? $_POST['id'] : $defaultValue;
+        $cantidadProducto =  isset($_POST['cantidadProducto']) ? $_POST['cantidadProducto'] : $defaultValue;
+
+        if ($cantidadProducto == $defaultValue || $productoId == $defaultValue) {
+            Redireccion::enviar($this->nombreMenu,'lista',SESSION_ID);
+        }
+
+        $this->Productos->agregarProductos($productoId,$cantidadProducto);
+
+        
+        $url = Redireccion::obtener($this->nombreMenu,'lista',SESSION_ID,'productos agregados')."&pag={$this->obtenerNumeroPagina()}";
+        header("Location: {$url}");
+        exit;
     }
 
 }

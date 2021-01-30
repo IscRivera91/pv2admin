@@ -19,5 +19,12 @@ class Productos extends Modelo
             'protegidas' => []
         ];
         parent::__construct($coneccion, $tabla, $relaciones, $columnas);
+    } 
+
+    public function agregarProductos(int $productoId, int $cantidad)
+    {
+        $cantidadActual = $this->obtenerDatosConRegistroId($productoId)['productos_cantidad'];
+        $nuevaCantidadProducto = $cantidadActual + $cantidad;
+        $this->modificarPorId($productoId,['cantidad' => $nuevaCantidadProducto]);
     }
 }
