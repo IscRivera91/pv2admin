@@ -1,5 +1,7 @@
 <?php
 
+define('GRUPO_CAJEROS_ID', 3);
+
 define('GUARDAR_MENU_SESSION',true);
 define('GUARDAR_ACCIONES_SESSION',true);
 
