@@ -187,7 +187,7 @@ class BaseDatos
 
         $numeroMenus = 7;
 
-        $numeroMetodosEspeciales = 7;
+        $numeroMetodosEspeciales = 9;
         $query .= "
             INSERT INTO `metodos` 
             (id,nombre,etiqueta,accion,icono,menu_id,activo_menu,activo_accion,activo,usuario_registro_id,usuario_actualizacion_id)
@@ -202,6 +202,9 @@ class BaseDatos
 
             ('6','agregarProducto','','Agregar Producto','fas fa-cart-plus',6,FALSE,TRUE,TRUE,-1,-1),
             ('7','agregarProductoBd','','','',6,FALSE,FALSE,TRUE,-1,-1),
+
+            ('8','nuevaContra','','Cambiar contraseña','fas fa-key',7,FALSE,TRUE,TRUE,-1,-1),
+            ('9','nuevaContraBd','','','',7,FALSE,FALSE,TRUE,-1,-1),
 
         ";
 
