@@ -64,7 +64,7 @@ class Autentificacion
     {
         if ( !isset($datosPost['usuario']) )
         {
-            throw new ErrorBase('Debe existir $_POST[\'usuarios\']');
+            throw new ErrorBase('Debe existir $_POST[\'usuario\']');
         }
         if ( $datosPost['usuario'] == '')
         {
