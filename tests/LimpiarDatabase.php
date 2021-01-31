@@ -8,7 +8,9 @@ use App\modelos\Metodos;
 use App\modelos\Usuarios;
 use App\modelos\Sessiones;
 use App\interfaces\Database;
+use App\modelos\Categorias;
 use App\modelos\MetodosGrupos;
+use App\modelos\Productos;
 
 class LimpiarDatabase
 {
@@ -20,7 +22,11 @@ class LimpiarDatabase
         $Usuarios = new Usuarios($coneccion);
         $Grupos = new Grupos($coneccion);
         $Sessiones = new Sessiones($coneccion);
+        $Categotias = new Categorias($coneccion);
+        $Productos = new Productos($coneccion);
 
+        $Productos->eliminarTodo();
+        $Categotias->eliminarTodo();
         $Sessiones->eliminarTodo();
         $MetodosGrupos->eliminarTodo();
         $Metodos->eliminarTodo();
