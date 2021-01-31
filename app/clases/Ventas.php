@@ -15,8 +15,7 @@ class Ventas {
 
     public function obtenerListaProductos(): array
     {
-        $columnas = [];
-
-        return $this->ProductosModelo->buscarTodo()['registros'];
+        $columnas = ['productos_id','productos_nombre','productos_cantidad','productos_precio_venta'];
+        return $this->ProductosModelo->buscarTodo($columnas)['registros'];
     }
 }
