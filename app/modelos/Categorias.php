@@ -12,7 +12,7 @@ class Categorias extends Modelo
         $tabla = 'categorias';
         $relaciones = []; 
         $columnas = [
-            'unicas' => [],
+            'unicas' => ['categoria'=>'nombre'],
             'obligatorias' => ['nombre'],
             'protegidas' => []
         ];
