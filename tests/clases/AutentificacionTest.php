@@ -67,7 +67,7 @@ class AutentificacionTest extends TestCase
         }catch(ErrorBase $e){
             $error = $e;
         }
-        $mensajeEsperado = 'Debe existir $_POST[\'usuarios\']';
+        $mensajeEsperado = 'Debe existir $_POST[\'usuario\']';
         $this->assertSame($error->getMessage(),$mensajeEsperado);
 
         $_POST['usuario'] = '';
