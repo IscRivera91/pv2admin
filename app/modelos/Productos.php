@@ -14,7 +14,7 @@ class Productos extends Modelo
             'categorias' => "{$tabla}.categoria_id"
         ]; 
         $columnas = [
-            'unicas' => ['nombre'],
+            'unicas' => ['producto' => 'nombre'],
             'obligatorias' => ['codigo_barras','nombre','categoria_id','cantidad','precio_compra','precio_venta'],
             'protegidas' => []
         ];
