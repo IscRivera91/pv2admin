@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php" colors="true">
     <testsuites>
-        <testsuite name="Argus Tests Suite">
+        <testsuite name="PV2sistema Tests Suite">
             <directory suffix="Test.php">./tests/ayudas</directory>
             <directory suffix="Test.php">./tests/clases</directory>
             <directory suffix="Test.php">./tests/controladores</directory>
@@ -10,10 +10,10 @@
     </testsuites>
     <php>
         <includePath>.</includePath>
-        <const name="DB_HOST" value="db"/>
+        <const name="DB_HOST" value="localhost"/>
         <const name="DB_USER" value="root"/>
         <const name="DB_PASSWORD" value="root"/>
-        <const name="DB_NAME" value="argus_test"/>
+        <const name="DB_NAME" value="pv2sistema_tests"/>
         <const name="DB_TIPO" value="MySQL"/>
         <const name="SESSION_ID" value="1"/>
         <const name="GRUPO_ID" value="1"/>
