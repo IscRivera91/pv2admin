@@ -31,3 +31,17 @@ try{
     $mensaje = "sessionId no valido";
     $json->errorResponse($mensaje,JsonResponse::HTTP_UNAUTHORIZED);
 }
+
+
+
+try {
+
+    $Productos = new Productos($coneccion);
+    $columnas = ['productos_id','productos_codigo_barras','categorias_nombre','productos_nombre','productos_cantidad','productos_precio_venta'];
+    $productos = $Productos->buscarTodo($columnas);
+
+}catch (ErrorBase $e) {
+    $json->errorResponse('Algo salio mal al buscar los productos, intente de nuevo mas tarde',JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+}
+
+$json->successResponse($productos['registros'],JsonResponse::HTTP_OK);
