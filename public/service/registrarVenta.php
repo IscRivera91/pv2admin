@@ -1,7 +1,6 @@
 <?php 
-
 $rutaBase = __DIR__.'/../../';
-require_once "{$rutaBase}app/config/requires.php"; 
+require_once "{$rutaBase}app/config/requires.php";  
 
 use App\clases\Autentificacion;
 use App\clases\JsonResponse;
@@ -11,7 +10,7 @@ use App\modelos\Productos;
 $json = new JsonResponse;
 
 if (!isset($_POST['sessionId'])){
-    $json->errorResponse('Es necesario el token de sessionId',JsonResponse::HTTP_UNAUTHORIZED);
+    $json->errorResponse('Es necesario el token de sessionId',JsonResponse::HTTP_BAD_REQUEST);
 } 
 
 $sessionId = $_POST['sessionId'];
@@ -32,16 +31,18 @@ try{
     $json->errorResponse($mensaje,JsonResponse::HTTP_UNAUTHORIZED);
 }
 
+if (!isset($_POST['idsProductos'])){
+    $json->errorResponse('Son necesarios los productos vendidos',JsonResponse::HTTP_BAD_REQUEST);
+} 
 
+$arrayProductosVendidos = unserialize($_POST['idsProductos']);
 
-try {
-
-    $Productos = new Productos($coneccion);
-    $columnas = ['productos_id','productos_codigo_barras','categorias_nombre','productos_nombre','productos_cantidad','productos_precio_venta'];
-    $productos = $Productos->buscarTodo($columnas);
-
-}catch (ErrorBase $e) {
-    $json->errorResponse('Algo salio mal al buscar los productos, intente de nuevo mas tarde',JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+if (!is_array($arrayProductosVendidos)){
+    $json->errorResponse('Los productos vendidos deben estar en un array',JsonResponse::HTTP_BAD_REQUEST);
 }
 
-$json->successResponse($productos['registros'],JsonResponse::HTTP_OK);
+
+
+
+
+$json->successResponse($arrayProductosVendidos,JsonResponse::HTTP_OK);

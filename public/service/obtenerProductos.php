@@ -11,7 +11,7 @@ use App\modelos\Productos;
 $json = new JsonResponse;
 
 if (!isset($_POST['sessionId'])){
-    $json->errorResponse('Es necesario el token de sessionId',JsonResponse::HTTP_UNAUTHORIZED);
+    $json->errorResponse('Es necesario el token de sessionId',JsonResponse::HTTP_BAD_REQUEST);
 } 
 
 $sessionId = $_POST['sessionId'];

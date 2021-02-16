@@ -8,6 +8,7 @@ $dotenv->load();
 define('ES_PRODUCCION', !$_ENV['APP_DEBUG'] );
 if (!ES_PRODUCCION) {
     error_reporting(E_ALL);
+    error_reporting(E_ALL ^ E_NOTICE);  
     ini_set('display_errors', 1);
 }
 
