@@ -6,6 +6,7 @@ require_once "{$rutaBase}app/config/requires.php";
 use App\clases\Autentificacion;
 use App\errores\Base AS ErrorBase;
 
+
 try {
     $claseDatabase = 'App\\clases\\'.DB_TIPO.'\\Database';
     $coneccion = new $claseDatabase();
@@ -24,5 +25,3 @@ try {
     exit;
 }
 
-$respuesta = json_encode(['sessionId' => $resultado['sessionId'], 'msj' => 'login exitoso']);
-print_r($respuesta);
