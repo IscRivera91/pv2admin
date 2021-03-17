@@ -44,7 +44,9 @@ class BaseDatos
             `fecha_actualizacion` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
             PRIMARY KEY (`id`) USING BTREE,
             INDEX `producto_id`(`producto_id`) USING BTREE,
-            CONSTRAINT `productoventa_ibfk_1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+            INDEX `venta_id`(`venta_id`) USING BTREE,
+            CONSTRAINT `productoventa_ibfk_1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+            CONSTRAINT `productoventa_ibfk_2` FOREIGN KEY (`venta_id`) REFERENCES `ventas` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
             ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
             DROP TABLE IF EXISTS `productos`;
