@@ -37,7 +37,7 @@ try{
 try {
 
     $Productos = new Productos($coneccion);
-
+ 
     $columnas = [
         'productos_id',
         'productos_codigo_barras',
@@ -47,7 +47,7 @@ try {
         'productos_precio_compra',
         'productos_precio_venta'
     ];
-    
+
     $productos = $Productos->buscarTodo($columnas);
 
 }catch (ErrorBase $e) {
