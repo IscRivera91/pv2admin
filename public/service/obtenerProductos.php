@@ -37,7 +37,17 @@ try{
 try {
 
     $Productos = new Productos($coneccion);
-    $columnas = ['productos_id','productos_codigo_barras','categorias_nombre','productos_nombre','productos_cantidad','productos_precio_venta'];
+
+    $columnas = [
+        'productos_id',
+        'productos_codigo_barras',
+        'categorias_nombre',
+        'productos_nombre',
+        'productos_cantidad',
+        'productos_precio_compra',
+        'productos_precio_venta'
+    ];
+    
     $productos = $Productos->buscarTodo($columnas);
 
 }catch (ErrorBase $e) {
