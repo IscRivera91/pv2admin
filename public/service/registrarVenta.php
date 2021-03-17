@@ -4,8 +4,8 @@ require_once "{$rutaBase}app/config/requires.php";
 
 use App\clases\Autentificacion;
 use App\clases\JsonResponse;
+use App\clases\Ventas;
 use App\errores\Base AS ErrorBase;
-use App\modelos\Productos;
 
 $json = new JsonResponse;
 
@@ -31,6 +31,24 @@ try{
     $json->errorResponse($mensaje,JsonResponse::HTTP_UNAUTHORIZED);
 }
 
+// validar los datos _POST
+
+$datosPost = [
+    'fecha',
+    'hora',
+    'numero_productos',
+    'cobro',
+    'pago',
+    'cambio',
+    'ganancia'
+];
+
+foreach ($datosPost as $dato) {
+    if (!isset($_POST[$dato])){
+        $json->errorResponse("Es dato:{$dato} es necesarios para poder registrar la venta",JsonResponse::HTTP_BAD_REQUEST);
+    } 
+}
+
 if (!isset($_POST['idsProductos'])){
     $json->errorResponse('Son necesarios los productos vendidos',JsonResponse::HTTP_BAD_REQUEST);
 } 
@@ -41,8 +59,13 @@ if (!is_array($arrayProductosVendidos)){
     $json->errorResponse('Los productos vendidos deben estar en un array',JsonResponse::HTTP_BAD_REQUEST);
 }
 
+$autentificacion->defineConstantes($datos,$sessionId);
 
+try{
+    $venta = new Ventas($coneccion);
+}catch(ErrorBase $e){
+    $mensaje = "Error al crear una instancio de la clase ventas";
+    $json->errorResponse($mensaje,JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+}
 
-
-
-$json->successResponse($arrayProductosVendidos,JsonResponse::HTTP_OK);
+$venta->registrar($_POST);
