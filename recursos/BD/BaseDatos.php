@@ -9,6 +9,28 @@ class BaseDatos
             SET NAMES utf8mb4;
             SET FOREIGN_KEY_CHECKS = 0;
 
+            DROP TABLE IF EXISTS `ventas`;
+            CREATE TABLE `ventas`  (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `cajero_id` int(11) NOT NULL,
+            `fecha` date NULL DEFAULT NULL,
+            `hora` time(0) NULL DEFAULT NULL,
+            `numero_productos` int(11) NULL DEFAULT NULL,
+            `cobro` double(11, 2) NULL DEFAULT NULL,
+            `pago` double(11, 2) NULL DEFAULT NULL,
+            `cambio` double(11, 2) NULL DEFAULT NULL,
+            `ganancia` double(11, 2) NULL DEFAULT NULL,
+            `corte` tinyint(11) NULL DEFAULT 0,
+            `activo` tinyint(11) NULL DEFAULT 0,
+            `usuario_registro_id` int(11) NULL DEFAULT NULL,
+            `usuario_actualizacion_id` int(11) NULL DEFAULT NULL,
+            `fecha_registro` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0),
+            `fecha_actualizacion` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0),
+            PRIMARY KEY (`id`) USING BTREE,
+            INDEX `cajero_id`(`cajero_id`) USING BTREE,
+            CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`cajero_id`) REFERENCES `usuarios` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+            ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+
             DROP TABLE IF EXISTS `productoventa`;
             CREATE TABLE `productoventa`  (
             `id` int(11) NOT NULL AUTO_INCREMENT,
