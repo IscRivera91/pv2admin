@@ -216,6 +216,10 @@ abstract class Modelo
         } catch(ErrorBase $e) {
             throw new ErrorBase('Error al obtener datos con registro id',$e);
         }
+        
+        if ($resultado['numeroRegistros'] < 1) {
+            throw new ErrorBase("Error no existe registro para el id={$id}",$e);
+        }
         return $resultado['registros'][0];
     }
 
