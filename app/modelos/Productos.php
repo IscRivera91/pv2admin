@@ -27,4 +27,11 @@ class Productos extends Modelo
         $nuevaCantidadProducto = $cantidadActual + $cantidad;
         $this->modificarPorId($productoId,['cantidad' => $nuevaCantidadProducto]);
     }
+
+    public function descontarProductos(int $productoId, int $cantidad)
+    {
+        $cantidadActual = $this->obtenerDatosConRegistroId($productoId)['productos_cantidad'];
+        $nuevaCantidadProducto = $cantidadActual - $cantidad;
+        $this->modificarPorId($productoId,['cantidad' => $nuevaCantidadProducto]);
+    }
 }
