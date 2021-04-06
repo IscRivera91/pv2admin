@@ -169,7 +169,7 @@ $menu_navegacion = \App\ayudas\Menu::crear($coneccion,GRUPO_ID);
     <div class="float-right d-none d-sm-block">
         <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright © 2020 Ing Rivera . </strong>todos los derechos reservados.
+    <strong>Copyright © 2020. </strong>todos los derechos reservados.
 </footer>
 
 </div>
